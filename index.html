@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Joho Weekly | Digital Newsletter</title>
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1828/1828490.png" type="image/png">
+  <link rel="icon" href="favicon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
   <style>
     html { scroll-behavior: smooth; }
@@ -15,9 +15,6 @@
       color: #c0fdfb;
       margin: 0;
       padding: 0;
-    }
-    header, footer, section, button, input, select, textarea {
-      text-shadow: 0 0 2px #00ff88, 0 0 4px #00ff88;
     }
     header {
       display: flex;
@@ -72,7 +69,6 @@
       border-top: none;
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px;
-      box-shadow: 0 0 15px rgba(30, 144, 255, 0.4);
       color: #e0f7ff;
     }
     input, textarea, select, button {
@@ -243,17 +239,16 @@
   <script>
     function subscribe(plan) {
       const name = document.getElementById('sub-name').value || 'Anonymous';
-      const email = document.getElementById('sub-email').value || '';
-      const subject = `New Subscription Request`;
+      const subject = 'New Subscription Request';
       const body = `Hi, my name is ${name} and I want to buy the ${plan} plan from Joho!!`;
-      window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
+      window.location.href = `mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
 
     function cancelPlan() {
       const name = document.getElementById('sub-name').value || 'Anonymous';
-      const subject = `Cancel My Subscription`;
+      const subject = 'Cancel My Subscription';
       const body = `Hi, I am ${name} and I want to cancel the subscription.`;
-      window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
+      window.location.href = `mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
 
     function sendMessage() {
@@ -262,7 +257,7 @@
       const message = document.getElementById('contact-msg').value || '';
       const subject = 'Wanted to get in touch';
       const body = `Hey Joho team,\n\nI'm ${name} (${email}) and I wanted to say:\n\n${message}`;
-      window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
+      window.location.href = `mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       alert('MESSAGE SENT. WAIT FOR A RESPONSE FROM THE CEO TEENS!!!');
     }
   </script>
