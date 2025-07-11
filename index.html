@@ -4,45 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Joho Weekly | Digital Newsletter</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1828/1828490.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
   <style>
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Orbitron', sans-serif;
-      letter-spacing: 0.5px;
-      line-height: 1.6;
       background-color: #0f1117;
       background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
       color: #c0fdfb;
       margin: 0;
       padding: 0;
     }
-    header, footer, section, button, input, select, textarea {
-      text-shadow: 0 0 2px #00ff88, 0 0 4px #00ff88;
-    }
     header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 20px;
+      justify-content: space-between;
       background-color: rgba(0, 0, 0, 0.85);
+      padding: 15px 30px;
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 999;
       box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
     .logo {
+      display: flex;
+      align-items: center;
       font-size: 24px;
       color: #00ffaa;
     }
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
     }
     .nav-links a {
       color: #caffdd;
+      margin-left: 20px;
       text-decoration: none;
     }
     section {
@@ -72,8 +69,10 @@
       border-top: none;
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px;
-      box-shadow: 0 0 15px rgba(30, 144, 255, 0.4);
       color: #e0f7ff;
+    }
+    input, textarea, select, button {
+      font-family: 'Orbitron', sans-serif;
     }
     .subscription-form input,
     .subscription-form select,
@@ -103,6 +102,20 @@
       background-color: #00ffaa;
       color: #000;
     }
+    .contact-form .cta-btn {
+      background-color: #0f62fe;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 25px;
+      cursor: pointer;
+      font-size: 16px;
+      box-shadow: 0 0 10px #0f62fe;
+    }
+    .contact-form .cta-btn:hover {
+      background-color: #00ffaa;
+      color: #000;
+    }
     .founder-container {
       display: flex;
       flex-direction: column;
@@ -122,42 +135,26 @@
       background-color: rgba(0, 255, 153, 0.3);
       border: 2px solid #00ffaa;
     }
-    .cta-btn {
-      background-color: #0f62fe;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      padding: 10px 25px;
-      cursor: pointer;
-      font-size: 16px;
-      text-shadow: none;
-      box-shadow: 0 0 10px #0f62fe;
-    }
-    .cta-btn:hover {
-      background-color: #00ffaa;
-      color: black;
-    }
     footer {
-      background-color: rgba(0,0,0,0.8);
       text-align: center;
+      background-color: rgba(0,0,0,0.8);
       padding: 20px;
       color: #caffdd;
       border-top: 2px solid #00bfff;
-      box-shadow: 0 -2px 10px rgba(0, 191, 255, 0.3);
     }
     @media screen and (max-width: 768px) {
       .founder-container {
         flex-direction: column;
-      }
-      section {
-        width: 95%;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">Joho Weekly</div>
+    <div class="logo">
+      <img src="logo.png.jpeg" alt="Joho Weekly Logo" />
+      <span>Joho Weekly</span>
+    </div>
     <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#founders">Our Founders</a>
@@ -171,14 +168,14 @@
   <section id="about">
     <div class="section-heading">Welcome to Joho Weekly</div>
     <div class="section-body">
-      <p>Joho Weekly is a digital tech newsletter run by two hilarious teens, delivering the latest news in gadgets, AI, and future innovations straight to your screen.</p>
+      <p>Joho Weekly is a digital newsletter created by two teens from India—bringing you the latest in science fun facts, tech updates, and 🔥 music drops!</p>
     </div>
   </section>
 
   <section id="subscribe">
     <div class="section-heading">Choose Your Plan</div>
     <div class="section-body">
-      <form class="subscription-form" onsubmit="return false">
+      <form class="subscription-form" onsubmit="return false;">
         <input type="text" id="sub-name" placeholder="Your Name">
         <input type="email" id="sub-email" placeholder="Your Gmail ID">
         <button class="plan-btn" onclick="subscribe('₹10 Weekly')">₹10 Weekly</button>
@@ -219,7 +216,7 @@
   <section id="testimonials">
     <div class="section-heading">Testimonials</div>
     <div class="section-body">
-      <p><em>"Joho Weekly is just 🔥🔥🔥"</em></p>
+      <p>"Joho Weekly is just 🔥🔥🔥"</p>
     </div>
   </section>
 
@@ -230,7 +227,7 @@
         <input type="text" id="contact-name" placeholder="Your Name">
         <input type="email" id="contact-email" placeholder="Your Gmail ID">
         <textarea id="contact-msg" placeholder="Your Message"></textarea>
-        <button class="cta-btn" type="submit">Send Message</button>
+        <button type="submit" class="cta-btn">Send Message</button>
       </form>
     </div>
   </section>
@@ -242,15 +239,14 @@
   <script>
     function subscribe(plan) {
       const name = document.getElementById('sub-name').value || 'Anonymous';
-      const email = document.getElementById('sub-email').value || '';
-      const subject = `New Subscription Request`;
+      const subject = 'New Subscription Request';
       const body = `Hi, my name is ${name} and I want to buy the ${plan} plan from Joho!!`;
       window.location.href = `mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
 
     function cancelPlan() {
       const name = document.getElementById('sub-name').value || 'Anonymous';
-      const subject = `Cancel My Subscription`;
+      const subject = 'Cancel My Subscription';
       const body = `Hi, I am ${name} and I want to cancel the subscription.`;
       window.location.href = `mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
