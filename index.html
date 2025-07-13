@@ -33,6 +33,9 @@
       top: 0;
       z-index: 999;
       box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease-in-out;
+ }
+
     }
     .logo {
       display: flex;
@@ -323,25 +326,23 @@
       alert('MESSAGE SENT. WAIT FOR A RESPONSE FROM THE CEO TEENS!!!');
     }
   </script>
- <script>
-  let lastScroll = 0;
+<script>
+  let lastScroll = window.scrollY;
   const header = document.querySelector("header");
 
   function handleScroll() {
     const currentScroll = window.scrollY;
-
     if (currentScroll > lastScroll) {
       header.style.transform = "translateY(-100%)";
     } else {
       header.style.transform = "translateY(0)";
     }
-
     lastScroll = currentScroll;
   }
 
   window.addEventListener("scroll", handleScroll, { passive: true });
-  window.addEventListener("touchmove", handleScroll, { passive: true });
 </script>
+
 
 </body>
 </html>
