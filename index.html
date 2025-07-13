@@ -325,10 +325,10 @@
   </script>
  <script>
   let lastScroll = 0;
+  const header = document.querySelector("header");
 
-  function handleHeaderScroll() {
-    const header = document.querySelector("header");
-    const currentScroll = window.pageYOffset;
+  function handleScroll() {
+    const currentScroll = window.scrollY;
 
     if (currentScroll > lastScroll) {
       header.style.transform = "translateY(-100%)";
@@ -339,7 +339,8 @@
     lastScroll = currentScroll;
   }
 
-  window.addEventListener("scroll", handleHeaderScroll);
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  window.addEventListener("touchmove", handleScroll, { passive: true });
 </script>
 
 </body>
