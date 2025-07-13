@@ -325,21 +325,22 @@
   </script>
  <script>
   let lastScroll = 0;
-  const header = document.querySelector("header");
 
-  window.addEventListener("scroll", () => {
+  function handleHeaderScroll() {
+    const header = document.querySelector("header");
     const currentScroll = window.pageYOffset;
 
     if (currentScroll > lastScroll) {
-      
       header.style.transform = "translateY(-100%)";
     } else {
-      
       header.style.transform = "translateY(0)";
     }
 
     lastScroll = currentScroll;
-  });
+  }
+
+  window.addEventListener("scroll", handleHeaderScroll);
 </script>
+
 </body>
 </html>
