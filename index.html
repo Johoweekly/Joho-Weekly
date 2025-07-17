@@ -8,8 +8,9 @@
   <meta name="robots" content="index, follow" />
 
   <title>Joho Weekly | Digital Newsletter</title>
-<link rel="icon" href="/favicon.ico" type="image/x-icon" />
-
+<link rel="icon" href="/Joho-Weekly/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/Joho-Weekly/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="/Joho-Weekly/favicon.png" type="image/png" />
 
 
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
@@ -323,15 +324,15 @@ footer {
   <script>
     function subscribe(plan) {
       const name = document.getElementById('sub-name').value || 'Anonymous';
-      const message = `Hi, my name is ${name} and I want to buy the ${plan} plan from Joho!!`;
-      const finalURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=New Subscription Request&body=${encodeURIComponent(message)}`;
+      const message = Hi, my name is ${name} and I want to buy the ${plan} plan from Joho!!;
+      const finalURL = https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=New Subscription Request&body=${encodeURIComponent(message)};
       window.open(finalURL, '_blank');
     }
 
     function cancelPlan() {
       const name = document.getElementById('sub-name').value || 'Anonymous';
-      const message = `Hi, I am ${name} and I want to cancel the subscription.`;
-      const finalURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=Cancel My Subscription&body=${encodeURIComponent(message)}`;
+      const message = Hi, I am ${name} and I want to cancel the subscription.;
+      const finalURL = https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=Cancel My Subscription&body=${encodeURIComponent(message)};
       window.open(finalURL, '_blank');
     }
 
@@ -339,8 +340,8 @@ footer {
       const name = document.getElementById('contact-name').value || 'Anonymous';
       const email = document.getElementById('contact-email').value || '';
       const message = document.getElementById('contact-msg').value || '';
-      const body = `Hey Joho team,\n\nI'm ${name} (${email}) and I wanted to say:\n\n${message}`;
-      const finalURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=Wanted to get in touch&body=${encodeURIComponent(body)}`;
+      const body = Hey Joho team,\n\nI'm ${name} (${email}) and I wanted to say:\n\n${message};
+      const finalURL = https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=Wanted to get in touch&body=${encodeURIComponent(body)};
       window.open(finalURL, '_blank');
       alert('MESSAGE SENT. WAIT FOR A RESPONSE FROM THE CEO TEENS!!!');
     }
