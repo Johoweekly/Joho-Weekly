@@ -323,43 +323,30 @@ footer {
 
 
 
-<h2>Choose Your Plan</h2>
-<input type="text" id="styled-sub-name" placeholder="Your Name" />
-<input type="email" id="styled-sub-email" placeholder="Your Gmail ID" />
-<br>
-<button onclick="subscribeStyled('weekly')">₹15 Weekly</button>
-<button onclick="subscribeStyled('monthly')">₹50 Monthly</button>
-<button onclick="subscribeStyled('yearly')">₹460 Yearly</button>
-<button onclick="subscribeStyled('free')">GET YOUR FREE PLAN FOR A MONTH!!!</button>
 
-<br><br><hr><br>
-
-<h2>Get in Touch</h2>
-<input type="text" id="getintouch-name" placeholder="Enter your name" />
-<br><br>
-<textarea id="getintouch-msg" placeholder="Type your message here..." rows="4" cols="50"></textarea>
-<br><br>
-<button onclick="getInTouch()" style="padding: 10px 20px; background: #111; color: #fff; border-radius: 8px; border: none;">
-  💬 Send Message to Joho
 </button>
 
 <script>
-  function subscribeStyled(plan) {
-    const name = document.getElementById('styled-sub-name').value || 'Anonymous';
-    const email = document.getElementById('styled-sub-email').value || '';
-    const plans = {
-      weekly: "the ₹15 Weekly plan",
-      monthly: "the ₹50 Monthly plan",
-      yearly: "the ₹460 Yearly plan",
-      free: "the Free plan for a month"
-    };
-    const planText = plans[plan] || "a Joho plan";
+  function subscribe(plan) {
+    const name = document.getElementById('sub-name').value || 'Anonymous';
+    const email = document.getElementById('sub-email').value || '';
     const subject = "Joho Subscription Request";
-    const body = `Hello, my name is ${name} (${email}) and I want to buy ${planText} from Joho!`;
+    const body = `Hello, my name is ${name} (${email}) and I want to buy the ${plan} plan from Joho!`;
+    const link = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = link;
+  }
+
+  function sendMessage() {
+    const name = document.getElementById('contact-name').value || 'Anonymous';
+    const email = document.getElementById('contact-email').value || '';
+    const msg = document.getElementById('contact-msg').value || '[No message]';
+    const subject = "Message from Joho Website";
+    const body = `Hey Joho team, my name is ${name} (${email}). I wanted to say: ${msg}`;
     const link = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = link;
   }
 </script>
+
 
 
 
