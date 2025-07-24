@@ -351,42 +351,48 @@ footer {
       monthly: "the ₹50 Monthly plan",
       yearly: "the ₹460 Yearly plan"
     };
-    const planText = plans[plan.toLowerCase()] || "a Joho plan";
+    
+    const planText = plans[plan.toLowerCase()];
+    if (!planText) return; // If invalid, do nothing
+
     const subject = "Joho Subscription Request";
     const body = `Hello, my name is ${name} and I want to buy ${planText} from Joho!`;
-    const link = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = link;
+
+    const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweekly@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoURL = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    try {
+      const popup = window.open(gmailURL, '_blank');
+      setTimeout(() => {
+        if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+          window.location.href = mailtoURL;
+        }
+      }, 500);
+    } catch {
+      window.location.href = mailtoURL;
+    }
   }
 
   function getInTouch() {
     const name = document.getElementById('getintouch-name').value || 'Anonymous';
-    const message = document.getElementById('getintouch-msg').value || "[no message]";
+    const message = document.getElementById('getintouch-msg').value || '[no message]';
     const subject = "Message from Joho Website";
     const body = `Hey Joho team, my name is ${name}. I wanted to reach out and say: ${message}`;
-    const link = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = link;
-  }
-</script>
 
+    const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweekly@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoURL = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-<script>
-  let lastScrollTop = 0;
-  const header = document.querySelector('header');
-
-  window.addEventListener('scroll', function () {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (window.innerWidth <= 768) {
-      if (currentScroll > lastScrollTop) {
-        header.style.top = '-100px';
-      } else {
-        header.style.top = '0';
-      }
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-    } else {
-      header.style.top = '0'; // Always visible on PC
+    try {
+      const popup = window.open(gmailURL, '_blank');
+      setTimeout(() => {
+        if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+          window.location.href = mailtoURL;
+        }
+      }, 500);
+    } catch {
+      window.location.href = mailtoURL;
     }
-  });
+  }
 </script>
 
 
