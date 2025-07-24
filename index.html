@@ -354,7 +354,8 @@ footer {
     const planText = planMap[plan.toLowerCase()] || 'a Joho plan';
     const subject = 'Joho Subscription Request';
     const body = `Hello, my name is ${name} and I want to buy ${planText} from Joho!`;
-    openGmail(subject, body);
+    const mailtoLink = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
   }
 
   function getInTouch() {
@@ -362,18 +363,8 @@ footer {
     const message = document.getElementById('getintouch-msg').value || '[no message]';
     const subject = 'Message from Joho Website';
     const body = `Hey Joho team, my name is ${name}. I wanted to reach out and say: ${message}`;
-    openGmail(subject, body);
-  }
-
-  function openGmail(subject, body) {
-    const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweekly@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    const newTab = window.open(gmailURL, '_blank');
-    setTimeout(() => {
-      if (!newTab || newTab.closed || typeof newTab.closed == 'undefined') {
-        const fallbackMailto = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.location.href = fallbackMailto;
-      }
-    }, 500);
+    const mailtoLink = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
   }
 </script>
 
