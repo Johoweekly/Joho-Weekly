@@ -342,41 +342,38 @@ footer {
   💬 Send Message to Joho
 </button>
 
-<br><br>
-
 <script>
   function subscribe(plan) {
     const name = document.getElementById('sub-name').value || 'Anonymous';
-    let planText = '';
-    switch (plan.toLowerCase()) {
-      case 'free':
-        planText = 'the Free plan';
-        break;
-      case 'weekly':
-        planText = 'the ₹15 Weekly plan';
-        break;
-      case 'monthly':
-        planText = 'the ₹50 Monthly plan';
-        break;
-      case 'yearly':
-        planText = 'the ₹460 Yearly plan';
-        break;
-      default:
-        planText = 'a Joho plan';
-    }
-    const subject = encodeURIComponent('Joho Subscription Request');
-    const body = encodeURIComponent(`Hello, my name is ${name} and I want to buy ${planText} from Joho!`);
-    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweekly@gmail.com&su=${subject}&body=${body}`;
-    window.open(gmailLink, '_blank');
+    const planMap = {
+      free: 'the Free plan',
+      weekly: 'the ₹15 Weekly plan',
+      monthly: 'the ₹50 Monthly plan',
+      yearly: 'the ₹460 Yearly plan'
+    };
+    const planText = planMap[plan.toLowerCase()] || 'a Joho plan';
+    const subject = 'Joho Subscription Request';
+    const body = `Hello, my name is ${name} and I want to buy ${planText} from Joho!`;
+    openGmail(subject, body);
   }
 
   function getInTouch() {
     const name = document.getElementById('getintouch-name').value || 'Anonymous';
     const message = document.getElementById('getintouch-msg').value || '[no message]';
-    const subject = encodeURIComponent('Message from Joho Website');
-    const body = encodeURIComponent(`Hey Joho team, my name is ${name}. I wanted to reach out and say: ${message}`);
-    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweekly@gmail.com&su=${subject}&body=${body}`;
-    window.open(gmailLink, '_blank');
+    const subject = 'Message from Joho Website';
+    const body = `Hey Joho team, my name is ${name}. I wanted to reach out and say: ${message}`;
+    openGmail(subject, body);
+  }
+
+  function openGmail(subject, body) {
+    const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweekly@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const newTab = window.open(gmailURL, '_blank');
+    setTimeout(() => {
+      if (!newTab || newTab.closed || typeof newTab.closed == 'undefined') {
+        const fallbackMailto = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = fallbackMailto;
+      }
+    }, 500);
   }
 </script>
 
