@@ -321,12 +321,11 @@ footer {
   &copy; 2025 Joho Weekly. <a href="https://github.com/Johoweekly/Joho-Weekly/blob/main/LICENSE" target="_blank" style="color: #00ffaa;">All rights reserved.</a>
 </footer>
 
-
-
-
-
-
 <script>
+  function isMobile() {
+    return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  }
+
   function subscribe(plan) {
     const name = document.getElementById('sub-name').value.trim();
     const email = document.getElementById('sub-email').value.trim();
@@ -343,12 +342,16 @@ footer {
     const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     const mailto = `mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    const opened = window.open(gmailURL, '_blank');
-    setTimeout(() => {
-      if (!opened || opened.closed || typeof opened.closed === 'undefined') {
-        window.location.href = mailto;
-      }
-    }, 700);
+    if (isMobile()) {
+      window.location.href = mailto;
+    } else {
+      const opened = window.open(gmailURL, '_blank');
+      setTimeout(() => {
+        if (!opened || opened.closed || typeof opened.closed === 'undefined') {
+          window.location.href = mailto;
+        }
+      }, 700);
+    }
   }
 
   function sendMessage() {
@@ -361,14 +364,19 @@ footer {
     const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     const mailto = `mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    const opened = window.open(gmailURL, '_blank');
-    setTimeout(() => {
-      if (!opened || opened.closed || typeof opened.closed === 'undefined') {
-        window.location.href = mailto;
-      }
-    }, 700);
+    if (isMobile()) {
+      window.location.href = mailto;
+    } else {
+      const opened = window.open(gmailURL, '_blank');
+      setTimeout(() => {
+        if (!opened || opened.closed || typeof opened.closed === 'undefined') {
+          window.location.href = mailto;
+        }
+      }, 700);
+    }
   }
 </script>
+
 
 
 
