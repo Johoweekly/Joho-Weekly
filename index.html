@@ -328,8 +328,8 @@ footer {
 
 <script>
   function subscribe(plan) {
-    const name = document.getElementById('sub-name').value || 'Anonymous';
-    const email = document.getElementById('sub-email').value || '';
+    const name = document.getElementById('sub-name').value.trim();
+    const email = document.getElementById('sub-email').value.trim();
     const plans = {
       weekly: "the ₹15 Weekly plan",
       monthly: "the ₹50 Monthly plan",
@@ -339,18 +339,34 @@ footer {
     const planText = plans[plan] || "a Joho plan";
     const subject = "Joho Subscription Request";
     const body = `Hello, my name is ${name} (${email}) and I want to buy ${planText} from Joho!`;
+
+    const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweekly@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     const mailto = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
+
+    const opened = window.open(gmailURL, '_blank');
+    setTimeout(() => {
+      if (!opened || opened.closed || typeof opened.closed === 'undefined') {
+        window.location.href = mailto;
+      }
+    }, 700);
   }
 
   function sendMessage() {
-    const name = document.getElementById('contact-name').value || 'Anonymous';
-    const email = document.getElementById('contact-email').value || '';
-    const message = document.getElementById('contact-msg').value || '[no message]';
+    const name = document.getElementById('contact-name').value.trim();
+    const email = document.getElementById('contact-email').value.trim();
+    const message = document.getElementById('contact-msg').value.trim();
     const subject = "Message from Joho Website";
     const body = `Hey Joho team, my name is ${name} (${email}). I wanted to reach out and say: ${message}`;
+
+    const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweekly@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     const mailto = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
+
+    const opened = window.open(gmailURL, '_blank');
+    setTimeout(() => {
+      if (!opened || opened.closed || typeof opened.closed === 'undefined') {
+        window.location.href = mailto;
+      }
+    }, 700);
   }
 </script>
 
