@@ -323,13 +323,14 @@ footer {
 
 
 
-<h2>Subscribe to Joho</h2>
-<input type="text" id="sub-name" placeholder="Enter your name" />
-<br><br>
-<button onclick="subscribe('free')">Free Plan</button>
-<button onclick="subscribe('weekly')">Weekly Plan (₹15)</button>
-<button onclick="subscribe('monthly')">Monthly Plan (₹50)</button>
-<button onclick="subscribe('yearly')">Yearly Plan (₹460)</button>
+<h2>Choose Your Plan</h2>
+<input type="text" id="styled-sub-name" placeholder="Your Name" />
+<input type="email" id="styled-sub-email" placeholder="Your Gmail ID" />
+<br>
+<button onclick="subscribeStyled('weekly')">₹15 Weekly</button>
+<button onclick="subscribeStyled('monthly')">₹50 Monthly</button>
+<button onclick="subscribeStyled('yearly')">₹460 Yearly</button>
+<button onclick="subscribeStyled('free')">GET YOUR FREE PLAN FOR A MONTH!!!</button>
 
 <br><br><hr><br>
 
@@ -343,57 +344,23 @@ footer {
 </button>
 
 <script>
-  function subscribe(plan) {
-    const name = document.getElementById('sub-name').value || 'Anonymous';
+  function subscribeStyled(plan) {
+    const name = document.getElementById('styled-sub-name').value || 'Anonymous';
+    const email = document.getElementById('styled-sub-email').value || '';
     const plans = {
-      free: "the Free plan",
       weekly: "the ₹15 Weekly plan",
       monthly: "the ₹50 Monthly plan",
-      yearly: "the ₹460 Yearly plan"
+      yearly: "the ₹460 Yearly plan",
+      free: "the Free plan for a month"
     };
-    
-    const planText = plans[plan.toLowerCase()];
-    if (!planText) return; // If invalid, do nothing
-
+    const planText = plans[plan] || "a Joho plan";
     const subject = "Joho Subscription Request";
-    const body = `Hello, my name is ${name} and I want to buy ${planText} from Joho!`;
-
-    const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweekly@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    const mailtoURL = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    try {
-      const popup = window.open(gmailURL, '_blank');
-      setTimeout(() => {
-        if (!popup || popup.closed || typeof popup.closed === 'undefined') {
-          window.location.href = mailtoURL;
-        }
-      }, 500);
-    } catch {
-      window.location.href = mailtoURL;
-    }
-  }
-
-  function getInTouch() {
-    const name = document.getElementById('getintouch-name').value || 'Anonymous';
-    const message = document.getElementById('getintouch-msg').value || '[no message]';
-    const subject = "Message from Joho Website";
-    const body = `Hey Joho team, my name is ${name}. I wanted to reach out and say: ${message}`;
-
-    const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweekly@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    const mailtoURL = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    try {
-      const popup = window.open(gmailURL, '_blank');
-      setTimeout(() => {
-        if (!popup || popup.closed || typeof popup.closed === 'undefined') {
-          window.location.href = mailtoURL;
-        }
-      }, 500);
-    } catch {
-      window.location.href = mailtoURL;
-    }
+    const body = `Hello, my name is ${name} (${email}) and I want to buy ${planText} from Joho!`;
+    const link = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = link;
   }
 </script>
+
 
 
 </body>
