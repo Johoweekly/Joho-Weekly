@@ -345,26 +345,26 @@ footer {
 <script>
   function subscribe(plan) {
     const name = document.getElementById('sub-name').value || 'Anonymous';
-    const planMap = {
-      free: 'the Free plan',
-      weekly: 'the ₹15 Weekly plan',
-      monthly: 'the ₹50 Monthly plan',
-      yearly: 'the ₹460 Yearly plan'
+    const plans = {
+      free: "the Free plan",
+      weekly: "the ₹15 Weekly plan",
+      monthly: "the ₹50 Monthly plan",
+      yearly: "the ₹460 Yearly plan"
     };
-    const planText = planMap[plan.toLowerCase()] || 'a Joho plan';
-    const subject = 'Joho Subscription Request';
+    const planText = plans[plan.toLowerCase()] || "a Joho plan";
+    const subject = "Joho Subscription Request";
     const body = `Hello, my name is ${name} and I want to buy ${planText} from Joho!`;
-    const mailtoLink = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
+    const link = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = link;
   }
 
   function getInTouch() {
     const name = document.getElementById('getintouch-name').value || 'Anonymous';
-    const message = document.getElementById('getintouch-msg').value || '[no message]';
-    const subject = 'Message from Joho Website';
+    const message = document.getElementById('getintouch-msg').value || "[no message]";
+    const subject = "Message from Joho Website";
     const body = `Hey Joho team, my name is ${name}. I wanted to reach out and say: ${message}`;
-    const mailtoLink = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
+    const link = `mailto:johoweekly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = link;
   }
 </script>
 
