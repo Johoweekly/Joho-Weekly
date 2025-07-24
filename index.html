@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8" />
+  <link rel="canonical" href="https://johoweekly.github.io/Joho-Weekly/" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Joho Weekly - A digital newsletter created by teens bringing you science, tech, and music updates!" />
+  <meta name="robots" content="index, follow" />
+
   <title>Joho Weekly | Digital Newsletter</title>
-  <link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" href="/Joho-Weekly/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/Joho-Weekly/favicon.ico" type="image/x-icon" />
+
+
+
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
   <style>
     html { scroll-behavior: smooth; }
@@ -19,138 +28,209 @@
     header, footer, section, button, input, select, textarea {
       text-shadow: 0 0 2px #00ff88, 0 0 4px #00ff88;
     }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 15px 30px;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      font-size: 24px;
-      color: #00ffaa;
-    }
-    .logo img {
-      height: 40px;
-      margin-right: 10px;
-    }
-    .nav-links a {
-      color: #caffdd;
-      margin-left: 20px;
-      text-decoration: none;
-    }
-    section {
-      margin: 40px auto;
-      padding: 0;
-      max-width: 95%;
-      width: 800px;
-    }
-    .section-heading {
-      background-color: #1e90ff;
-      text-align: center;
-      padding: 20px;
-      color: #00ff88;
-      font-weight: bold;
-      font-size: 24px;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      border: 2px solid #0000ff;
-      border-bottom: none;
-      box-shadow: 0 0 10px #00ff88;
-      text-shadow: 0 0 1px #0000ff, 0 0 2px #0000ff;
-    }
-    .section-body {
-      background-color: #20382f;
-      padding: 30px 20px;
-      border: 2px solid #1e90ff;
-      border-top: none;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      color: #e0f7ff;
-    }
-    input, textarea, select, button {
-      font-family: 'Orbitron', sans-serif;
-    }
-    .subscription-form input,
-    .subscription-form select,
-    .contact-form input,
-    .contact-form textarea {
-      display: block;
-      width: 90%;
-      padding: 8px;
-      margin: 10px auto;
-      border: 1px solid #00bfff;
-      border-radius: 5px;
-      background-color: #0a0f1f;
-      color: #b2f2bb;
-    }
-    .plan-btn {
-      display: block;
-      width: 90%;
-      margin: 10px auto;
-      padding: 12px;
-      background-color: #111;
-      border: 2px solid #00bfff;
-      color: #00bfff;
-      cursor: pointer;
-      border-radius: 6px;
-    }
-    .plan-btn:hover {
-      background-color: #00ffaa;
-      color: #000;
-    }
-    .contact-form .cta-btn {
-      background-color: #0f62fe;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      padding: 10px 25px;
-      cursor: pointer;
-      font-size: 16px;
-      box-shadow: 0 0 10px #0f62fe;
-    }
-    .contact-form .cta-btn:hover {
-      background-color: #00ffaa;
-      color: #000;
-    }
-    .founder-container {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .founder-profile {
-      flex: 1;
-      padding: 20px;
-      border-radius: 10px;
-      color: #fff;
-    }
-    .ava {
-      background-color: rgba(0, 191, 255, 0.3);
-      border: 2px solid #00bfff;
-    }
-    .lalith {
-      background-color: rgba(0, 255, 153, 0.3);
-      border: 2px solid #00ffaa;
-    }
-    footer {
-      text-align: center;
-      background-color: rgba(0,0,0,0.8);
-      padding: 20px;
-      color: #caffdd;
-      border-top: 2px solid #00bfff;
-      box-shadow: 0 -2px 10px rgba(0, 191, 255, 0.3);
-    }
-    @media screen and (max-width: 768px) {
-      .founder-container {
-        flex-direction: column;
-      }
-    }
+   header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  color: #00ffaa;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.nav-links a {
+  color: #caffdd;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+section {
+  margin: 40px auto;
+  padding: 0;
+  max-width: 95%;
+  width: 800px;
+}
+
+.section-heading {
+  background-color: #1e90ff;
+  text-align: center;
+  padding: 20px;
+  color: #00ff88;
+  font-weight: bold;
+  font-size: 24px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 2px solid #0000ff;
+  border-bottom: none;
+  box-shadow: 0 0 10px #00ff88;
+  text-shadow: 0 0 1px #0000ff, 0 0 2px #0000ff;
+}
+
+.section-body {
+  background-color: #20382f;
+  padding: 30px 20px;
+  border: 2px solid #1e90ff;
+  border-top: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: #e0f7ff;
+}
+
+input, textarea, select, button {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.subscription-form input,
+.subscription-form select,
+.contact-form input,
+.contact-form textarea {
+  display: block;
+  width: 90%;
+  padding: 8px;
+  margin: 10px auto;
+  border: 1px solid #00bfff;
+  border-radius: 5px;
+  background-color: #0a0f1f;
+  color: #b2f2bb;
+}
+
+.plan-btn {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 12px;
+  background-color: #111;
+  border: 2px solid #00bfff;
+  color: #00bfff;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.plan-btn:hover {
+  background-color: #00ffaa;
+  color: #000;
+}
+
+.contact-form .cta-btn {
+  background-color: #0f62fe;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 0 10px #0f62fe;
+}
+
+.contact-form .cta-btn:hover {
+  background-color: #00ffaa;
+  color: #000;
+}
+
+.founder-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.founder-profile {
+  flex: 1;
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.ava {
+  background-color: rgba(0, 191, 255, 0.3);
+  border: 2px solid #00bfff;
+}
+
+.lalith {
+  background-color: rgba(0, 255, 153, 0.3);
+  border: 2px solid #00ffaa;
+}
+
+footer {
+  text-align: center;
+  background-color: rgba(0,0,0,0.8);
+  padding: 20px;
+  color: #caffdd;
+  border-top: 2px solid #00bfff;
+  box-shadow: 0 -2px 10px rgba(0, 191, 255, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .logo {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+  }
+
+  .logo img {
+    height: 35px;
+    margin-right: 10px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .nav-links a {
+    margin: 0 5px;
+    font-size: 14px;
+  }
+
+  section {
+    width: 95%;
+    padding: 0 10px;
+  }
+
+  .section-heading {
+    font-size: 20px;
+    padding: 15px;
+  }
+
+  .plan-btn,
+  .subscription-form input,
+  .subscription-form select {
+    width: 100%;
+  }
+
+  .contact-form .cta-btn {
+    width: 100%;
+  }
+
+  .founder-container {
+    flex-direction: column;
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -166,6 +246,7 @@
       <a href="#sample">Sample</a>
       <a href="#testimonials">Testimonials</a>
       <a href="#contact">Get in Touch</a>
+        <a href="joho-policy.html">Policy</a>
     </nav>
   </header>
 
@@ -182,10 +263,10 @@
       <form class="subscription-form" onsubmit="return false;">
         <input type="text" id="sub-name" placeholder="Your Name">
         <input type="email" id="sub-email" placeholder="Your Gmail ID">
-        <button class="plan-btn" onclick="subscribe('₹10 Weekly')">₹10 Weekly</button>
-        <button class="plan-btn" onclick="subscribe('₹40 Monthly')">₹40 Monthly</button>
-        <button class="plan-btn" onclick="subscribe('₹335 Yearly')">₹335 Yearly</button>
-        <button class="plan-btn" onclick="cancelPlan()">Cancel Subscription</button>
+        <button class="plan-btn" onclick="subscribe('₹15 Weekly')">₹15 Weekly</button>
+        <button class="plan-btn" onclick="subscribe('₹50 Monthly')">₹50 Monthly</button>
+        <button class="plan-btn" onclick="subscribe('₹460 Yearly')">₹460 Yearly</button>
+        <button class="plan-btn" onclick="subscribe('Free for a month')">GET YOUR FREE PLAN FOR A MONTH!!!</button>
       </form>
     </div>
   </section>
@@ -220,7 +301,7 @@
   <section id="testimonials">
     <div class="section-heading">Testimonials</div>
     <div class="section-body">
-      <p>"Joho Weekly is just 🔥🔥🔥"</p>
+      <p>"Joho Weekly is just 🔥🔥🔥- A Cool Teen"</p>
     </div>
   </section>
 
@@ -243,29 +324,51 @@
 
 
   <script>
-    function subscribe(plan) {
-      const name = document.getElementById('sub-name').value || 'Anonymous';
-      const message = `Hi, my name is ${name} and I want to buy the ${plan} plan from Joho!!`;
-      const finalURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=New Subscription Request&body=${encodeURIComponent(message)}`;
-      window.open(finalURL, '_blank');
-    }
+  function subscribe(plan) {
+    const name = document.getElementById('sub-name').value || 'Anonymous';
+    const message = `Hi, my name is ${name} and I want to buy the ${plan} plan from Joho!!`;
+    const finalURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=New Subscription Request&body=${encodeURIComponent(message)}`;
+    window.open(finalURL, '_blank');
+  }
 
-    function cancelPlan() {
-      const name = document.getElementById('sub-name').value || 'Anonymous';
-      const message = `Hi, I am ${name} and I want to cancel the subscription.`;
-      const finalURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=Cancel My Subscription&body=${encodeURIComponent(message)}`;
-      window.open(finalURL, '_blank');
-    }
+  function cancelPlan() {
+    const name = document.getElementById('sub-name').value || 'Anonymous';
+    const message = `Hi, I am ${name} and I want to cancel the subscription.`;
+    const finalURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=Cancel My Subscription&body=${encodeURIComponent(message)}`;
+    window.open(finalURL, '_blank');
+  }
 
-    function sendMessage() {
-      const name = document.getElementById('contact-name').value || 'Anonymous';
-      const email = document.getElementById('contact-email').value || '';
-      const message = document.getElementById('contact-msg').value || '';
-      const body = `Hey Joho team,\n\nI'm ${name} (${email}) and I wanted to say:\n\n${message}`;
-      const finalURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=Wanted to get in touch&body=${encodeURIComponent(body)}`;
-      window.open(finalURL, '_blank');
-      alert('MESSAGE SENT. WAIT FOR A RESPONSE FROM THE CEO TEENS!!!');
+  function sendMessage() {
+    const name = document.getElementById('contact-name').value || 'Anonymous';
+    const email = document.getElementById('contact-email').value || '';
+    const message = document.getElementById('contact-msg').value || '';
+    const body = `Hey Joho team,\n\nI'm ${name} (${email}) and I wanted to say:\n\n${message}`;
+    const finalURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=Wanted to get in touch&body=${encodeURIComponent(body)}`;
+    window.open(finalURL, '_blank');
+    alert('MESSAGE SENT. WAIT FOR A RESPONSE FROM THE CEO TEENS!!!');
+  }
+</script>
+
+<script>
+  let lastScrollTop = 0;
+  const header = document.querySelector('header');
+
+  window.addEventListener('scroll', function () {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (window.innerWidth <= 768) {
+      if (currentScroll > lastScrollTop) {
+        header.style.top = '-100px';
+      } else {
+        header.style.top = '0';
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    } else {
+      header.style.top = '0'; // Always visible on PC
     }
-  </script>
+  });
+</script>
+
+
 </body>
 </html>
