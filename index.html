@@ -261,8 +261,8 @@ footer {
   <div class="section-heading">Choose Your Plan</div>
   <div class="section-body">
     <div class="subscription-form">
-      <input type="text" id="sub-name" placeholder="Your Name">
-      <input type="email" id="sub-email" placeholder="Your Gmail ID">
+   <input type="text" id="sub-name" placeholder="Your Name" required>
+<input type="email" id="sub-email" placeholder="Your Gmail ID" required>
       <button class="plan-btn" onclick="subscribe('weekly')">₹15 Weekly</button>
       <button class="plan-btn" onclick="subscribe('monthly')">₹50 Monthly</button>
       <button class="plan-btn" onclick="subscribe('yearly')">₹460 Yearly</button>
@@ -309,10 +309,10 @@ footer {
   <div class="section-heading">Get in Touch</div>
   <div class="section-body">
     <div class="contact-form">
-      <input type="text" id="contact-name" placeholder="Your Name">
-      <input type="email" id="contact-email" placeholder="Your Gmail ID">
-      <textarea id="contact-msg" placeholder="Your Message"></textarea>
-      <button class="cta-btn" onclick="sendMessage()">Send Message</button>
+    <input type="text" id="contact-name" placeholder="Your Name" required>
+<input type="email" id="contact-email" placeholder="Your Gmail ID" required>
+<textarea id="contact-msg" placeholder="Your Message" required></textarea>
+<button class="cta-btn" onclick="sendMessage()">Send Message</button>
     </div>
   </div>
 </section>
@@ -384,3 +384,4 @@ footer {
 
 </body>
 </html>
+
