@@ -257,20 +257,29 @@ footer {
     </div>
   </section>
 
- <section id="subscribe">
+<section id="subscribe">
   <div class="section-heading">Choose Your Plan</div>
   <div class="section-body">
-    <form class="subscription-form" onsubmit="return false;">
+    <form class="subscription-form" id="subscriptionForm">
       <input type="text" id="sub-name" placeholder="Your Name" required>
       <input type="email" id="sub-email" placeholder="Your Gmail ID" required>
 
-      <button type="button" class="plan-btn" onclick="subscribe('weekly')">₹15 Weekly</button>
-      <button type="button" class="plan-btn" onclick="subscribe('monthly')">₹50 Monthly</button>
-      <button type="button" class="plan-btn" onclick="subscribe('yearly')">₹460 Yearly</button>
-      <button type="button" class="plan-btn" onclick="subscribe('free')">GET YOUR FREE PLAN FOR A MONTH!!!</button>
+      <button type="button" class="plan-btn" onclick="validateAndSubscribe('weekly')">₹15 Weekly</button>
+      <button type="button" class="plan-btn" onclick="validateAndSubscribe('monthly')">₹50 Monthly</button>
+      <button type="button" class="plan-btn" onclick="validateAndSubscribe('yearly')">₹460 Yearly</button>
+      <button type="button" class="plan-btn" onclick="validateAndSubscribe('free')">GET YOUR FREE PLAN FOR A MONTH!!!</button>
     </form>
   </div>
 </section>
+
+<script>
+  function validateAndSubscribe(plan) {
+    const form = document.getElementById('subscriptionForm');
+    if (form.reportValidity()) {
+      subscribe(plan);
+    }
+  }
+</script>
 
 
   <section id="founders">
@@ -386,6 +395,7 @@ footer {
 
 </body>
 </html>
+
 
 
 
