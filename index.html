@@ -386,10 +386,9 @@ footer {
       }, 700);
     }
   }
-</script>
-
 <script type="module">
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
 const SUPABASE_URL = 'https://rkxumkskaousguvjjxbq.supabase.co'
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJreHVta3NrYW91c2d1dmpqeGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM0NDc4NDcsImV4cCI6MjA2OTAyMzg0N30.LgToLYMG_slWenl1uwB-5aqS8EhNmAGq3EGUwB7m_iI'
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
@@ -425,32 +424,21 @@ async function saveSubscriptionNow(plan) {
   if (!navigator.onLine) return
   const { name, email } = JSON.parse(raw)
   if (!email) return
-  const payload = { email, name, plan: plan ?? '', updated_at: new Date().toISOString() }
-  const { error } = await supabase.from('subscriptions').upsert(payload)
+  const payload = { 
+    platform: 'subscription',
+    plan_chosen: plan ?? '',
+    email_id: email 
+  }
+  const { error } = await supabase.from('joho_site_backend').insert(payload)
   if (!error) localStorage.removeItem(LOCAL_SUB)
 }
 
 planButtons.forEach(btn => {
-  btn.addEventListener('click', (e) => {
+  btn.addEventListener('click', () => {
     const onclick = btn.getAttribute('onclick') || ''
     const m = onclick.match(/'([^']+)'/)
     const plan = m ? m[1] : ''
     scheduleSubSave(plan)
-    const name = subName?.value?.trim() ?? ''
-    const email = subEmail?.value?.trim() ?? ''
-    const plans = { weekly: "the ₹15 Weekly plan", monthly: "the ₹50 Monthly plan", yearly: "the ₹460 Yearly plan", free: "the Free plan for a month" }
-    const planText = plans[plan] || "a Joho plan"
-    const subject = "Joho Subscription Request"
-    const body = `Hello, my name is ${name} (${email}) and I want to buy ${planText} from Joho!`
-    const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    const mailto = `mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) window.location.href = mailto
-    else {
-      const opened = window.open(gmailURL, '_blank')
-      setTimeout(() => {
-        if (!opened || opened.closed || typeof opened.closed === 'undefined') window.location.href = mailto
-      }, 700)
-    }
   })
 })
 
@@ -481,48 +469,24 @@ async function saveMessageNow() {
   if (!navigator.onLine) return
   const { name, email, message } = JSON.parse(raw)
   if (!email || !message) return
-  const payload = { name, email, message, created_at: new Date().toISOString() }
-  const { error } = await supabase.from('messages').insert(payload)
+  const payload = { 
+    platform: 'message',
+    message_sent: message,
+    email_id: email 
+  }
+  const { error } = await supabase.from('joho_site_backend').insert(payload)
   if (!error) localStorage.removeItem(LOCAL_MSG)
 }
 
 window.validateAndSubscribe = function(plan) {
   scheduleSubSave(plan)
-  const name = subName?.value?.trim() ?? ''
-  const email = subEmail?.value?.trim() ?? ''
-  const plans = { weekly: "the ₹15 Weekly plan", monthly: "the ₹50 Monthly plan", yearly: "the ₹460 Yearly plan", free: "the Free plan for a month" }
-  const planText = plans[plan] || "a Joho plan"
-  const subject = "Joho Subscription Request"
-  const body = `Hello, my name is ${name} (${email}) and I want to buy ${planText} from Joho!`
-  const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-  const mailto = `mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-  if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) window.location.href = mailto
-  else {
-    const opened = window.open(gmailURL, '_blank')
-    setTimeout(() => {
-      if (!opened || opened.closed || typeof opened.closed === 'undefined') window.location.href = mailto
-    }, 700)
-  }
+  alert(`Subscription request saved for plan: ${plan}`)
 }
 
 window.sendMessage = async function() {
   saveLocalMsg()
   await saveMessageNow()
-  const name = contactName?.value?.trim() ?? ''
-  const email = contactEmail?.value?.trim() ?? ''
-  const message = contactMsg?.value?.trim() ?? ''
-  if (!name || !email || !message) { alert('Please fill in all contact fields.'); return }
-  const subject = "Message from Joho Website"
-  const body = `Hey Joho team, my name is ${name} (${email}). I wanted to reach out and say: ${message}`
-  const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-  const mailto = `mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-  if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) window.location.href = mailto
-  else {
-    const opened = window.open(gmailURL, '_blank')
-    setTimeout(() => {
-      if (!opened || opened.closed || typeof opened.closed === 'undefined') window.location.href = mailto
-    }, 700)
-  }
+  alert('Message sent (or saved for retry if offline).')
 }
 
 window.addEventListener('online', () => { saveSubscriptionNow(); saveMessageNow() })
@@ -534,6 +498,7 @@ window.addEventListener('load', () => { saveSubscriptionNow(); saveMessageNow() 
 
 </body>
 </html>
+
 
 
 
