@@ -376,10 +376,11 @@ window.validateAndSubscribe = async function(plan) {
   }
 
   const subject = "Joho Subscription Request"
-  const body = Hello, my name is ${name} (${email}) and I want to buy ${planText} from Joho!
+  const body = `Hello, my name is ${name} (${email}) and I want to buy ${planText} from Joho!`
 
-  const gmailURL = https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}
-  const mailto = mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}
+const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+
+const mailto = `mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 
   if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
     window.location.href = mailto
@@ -417,11 +418,11 @@ window.sendMessage = async function() {
     console.error("Error saving message:", error)
   }
 
-  const subject = Message from ${name}
-  const body = Hello, my name is ${name} (${email}).\n\nHere is my message:\n${message}
+ const subject = `Message from ${name}`
+const body = `Hello, my name is ${name} (${email}).\n\nHere is my message:\n${message}`
 
-  const gmailURL = https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}
-  const mailto = mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}
+const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+const mailto = `mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 
   if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
     window.location.href = mailto
@@ -441,6 +442,7 @@ window.sendMessage = async function() {
 
 </body>
 </html>
+
 
 
 
