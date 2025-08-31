@@ -256,15 +256,18 @@ footer {
       <p>Joho Weekly is a digital newsletter created by two teens from India—bringing you the latest in science fun facts, tech updates, and 🔥 music drops!</p>
     </div>
   </section>
-
+  
 <section id="subscribe">
-  <div class="section-heading">Choose Your Plan</div>
-  <div class="section-body">
-    <form class="subscription-form" id="subscriptionForm">
-     <input type="text" id="sub-name" placeholder="Your Name" required>
-<input type="email" id="sub-email" placeholder="Your Email" required>
+  <input type="text" id="sub-name" placeholder="Your Name" />
+<input type="email" id="sub-email" placeholder="Your Email" />
 
-<button type="button" class="plan-btn" onclick="validateAndSubscribe('weekly')">₹15 Weekly</button> <button type="button" class="plan-btn" onclick="validateAndSubscribe('monthly')">₹50 Monthly</button> <button type="button" class="plan-btn" onclick="validateAndSubscribe('yearly')">₹460 Yearly</button> <button type="button" class="plan-btn" onclick="validateAndSubscribe('free')">GET YOUR FREE PLAN FOR A MONTH!!!</button>
+<button onclick="validateAndSubscribe('weekly')">Weekly Plan ₹15</button>
+<button onclick="validateAndSubscribe('monthly')">Monthly Plan ₹50</button>
+<button onclick="validateAndSubscribe('yearly')">Yearly Plan ₹460</button>
+<button onclick="validateAndSubscribe('free')">Free Trial for a month!!</button>
+
+</section>
+
 
     </form>
   </div>
@@ -326,17 +329,119 @@ footer {
   </div>
 </section>
 
+
 <footer>
   &copy; 2025 Joho Weekly. <a href="https://github.com/Johoweekly/Joho-Weekly/blob/main/LICENSE" target="_blank" style="color: #00ffaa;">All rights reserved.</a>
 </footer>
 
-<script type="module"> import { createClient } from 'https://esm.sh/@supabase/supabase-js@2' const SUPABASE_URL = 'https://rkxumkskaousguvjjxbq.supabase.co' const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJreHVta3NrYW91c2d1dmpqeGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM0NDc4NDcsImV4cCI6MjA2OTAyMzg0N30.LgToLYMG_slWenl1uwB-5aqS8EhNmAGq3EGUwB7m_iI' const supabase = createClient('https://rkxumkskaousguvjjxbq.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJreHVta3NrYW91c2d1dmpqeGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM0NDc4NDcsImV4cCI6MjA2OTAyMzg0N30.LgToLYMG_slWenl1uwB-5aqS8EhNmAGq3EGUwB7m_iI'); const subName = document.getElementById('sub-name') const subEmail = document.getElementById('sub-email') window.validateAndSubscribe = async function(plan) { const name = subName?.value?.trim() const email = subEmail?.value?.trim() if (!name || !email) { alert("Please enter both your name and email before choosing a plan.") return } const plans = { weekly: "the ₹15 Weekly plan", monthly: "the ₹50 Monthly plan", yearly: "the ₹460 Yearly plan", free: "the Free plan for a month" } const planText = plans[plan] || "a Joho plan" const { error } = await supabase .from('joho_site_backend') .insert({ email_id: email, platform: navigator.userAgent, plan_chosen: planText, timestamp: new Date().toISOString() }) if (error) { console.error("Error saving subscription:", error) } const subject = "Joho Subscription Request" const body = Hello, my name is ${name} (${email}) and I want to buy ${planText} from Joho! const gmailURL = https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)} const mailto = mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)} if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) { window.location.href = mailto } else { const opened = window.open(gmailURL, '_blank') setTimeout(() => { if (!opened || opened.closed || typeof opened.closed === 'undefined') { window.location.href = mailto } }, 700) } } </script>
+You said:
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+const SUPABASE_URL = 'https://rkxumkskaousguvjjxbq.supabase.co'
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJreHVta3NrYW91c2d1dmpqeGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM0NDc4NDcsImV4cCI6MjA2OTAyMzg0N30.LgToLYMG_slWenl1uwB-5aqS8EhNmAGq3EGUwB7m_iI'
+
+const supabase = createClient( 'https://rkxumkskaousguvjjxbq.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJreHVta3NrYW91c2d1dmpqeGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM0NDc4NDcsImV4cCI6MjA2OTAyMzg0N30.LgToLYMG_slWenl1uwB-5aqS8EhNmAGq3EGUwB7m_iI')
+
+const subName = document.getElementById('sub-name')
+const subEmail = document.getElementById('sub-email')
+
+window.validateAndSubscribe = async function(plan) {
+  const name = subName?.value?.trim()
+  const email = subEmail?.value?.trim()
+  if (!name || !email) {
+    alert("Please enter both your name and email before choosing a plan.")
+    return
+  }
+
+  const plans = {
+    weekly: "the ₹15 Weekly plan",
+    monthly: "the ₹50 Monthly plan",
+    yearly: "the ₹460 Yearly plan",
+    free: "the Free plan for a month"
+  }
+  const planText = plans[plan] || "a Joho plan"
+
+  const { error } = await supabase
+    .from('joho_site_backend')
+    .insert({
+      email_id: email,
+      platform: navigator.userAgent,
+      plan_chosen: planText,
+      timestamp: new Date().toISOString()
+    })
+
+  if (error) {
+    console.error("Error saving subscription:", error)
+  }
+
+  const subject = "Joho Subscription Request"
+  const body = Hello, my name is ${name} (${email}) and I want to buy ${planText} from Joho!
+
+  const gmailURL = https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}
+  const mailto = mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}
+
+  if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
+    window.location.href = mailto
+  } else {
+    const opened = window.open(gmailURL, '_blank')
+    setTimeout(() => {
+      if (!opened || opened.closed || typeof opened.closed === 'undefined') {
+        window.location.href = mailto
+      }
+    }, 700)
+  }
+}
+
+window.sendMessage = async function() {
+  const name = document.getElementById('contact-name')?.value?.trim()
+  const email = document.getElementById('contact-email')?.value?.trim()
+  const message = document.getElementById('contact-msg')?.value?.trim()
+
+  if (!name || !email || !message) {
+    alert("Please fill out all fields before sending your message.")
+    return
+  }
+
+  const { error } = await supabase
+    .from('joho_site_backend')
+    .insert({
+      email_id: email,
+      platform: navigator.userAgent,
+      plan_chosen: "Contact Form Message",
+      message: message,
+      timestamp: new Date().toISOString()
+    })
+
+  if (error) {
+    console.error("Error saving message:", error)
+  }
+
+  const subject = Message from ${name}
+  const body = Hello, my name is ${name} (${email}).\n\nHere is my message:\n${message}
+
+  const gmailURL = https://mail.google.com/mail/?view=cm&fs=1&to=johoweeklylava@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}
+  const mailto = mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}
+
+  if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
+    window.location.href = mailto
+  } else {
+    const opened = window.open(gmailURL, '_blank')
+    setTimeout(() => {
+      if (!opened || opened.closed || typeof opened.closed === 'undefined') {
+        window.location.href = mailto
+      }
+    }, 700)
+  }
+}
+</script>
 
 
 
 
 </body>
 </html>
+
 
 
 
