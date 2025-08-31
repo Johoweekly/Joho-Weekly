@@ -258,20 +258,28 @@ footer {
   </section>
   
 <section id="subscribe">
-  <input type="text" id="sub-name" placeholder="Your Name" />
-<input type="email" id="sub-email" placeholder="Your Email" />
+  <div class="section-heading">Subscribe to Joho Weekly</div>
+  <div class="section-body">
+    <form class="subscription-form" onsubmit="validateAndSubscribe(); return false;">
+      <input type="text" id="sub-name" placeholder="Your Name" required>
+      <input type="email" id="sub-email" placeholder="Your Gmail ID" required>
 
-<button onclick="validateAndSubscribe('weekly')">Weekly Plan ₹15</button>
-<button onclick="validateAndSubscribe('monthly')">Monthly Plan ₹50</button>
-<button onclick="validateAndSubscribe('yearly')">Yearly Plan ₹460</button>
-<button onclick="validateAndSubscribe('free')">Free Trial for a month!!</button>
-
+      <div class="plan-buttons">
+        <button type="button" class="plan-btn" onclick="validateAndSubscribe('weekly')">₹15 Weekly</button>
+        <button type="button" class="plan-btn" onclick="validateAndSubscribe('monthly')">₹50 Monthly</button>
+        <button type="button" class="plan-btn" onclick="validateAndSubscribe('yearly')">₹460 Yearly</button>
+        <button type="button" class="plan-btn free-btn" onclick="validateAndSubscribe('free')">Free Trial for a Month</button>
+      </div>
+    </form>
+  </div>
 </section>
+
 
 
     </form>
   </div>
 </section>
+
 
 <script>
   function validateAndSubscribe(plan) {
@@ -295,6 +303,7 @@ footer {
         </div>
         <div class="founder-profile lalith">
           <h3>Lalith</h3>
+  
           <p>Age: 14</p>
           <p>Gender: Male</p>
           <p>From: India</p>
@@ -442,6 +451,7 @@ const mailto = `mailto:johoweeklylava@gmail.com?subject=${encodeURIComponent(sub
 
 </body>
 </html>
+
 
 
 
