@@ -264,10 +264,11 @@ footer {
      <input type="text" id="sub-name" placeholder="Your Name" required>
 <input type="email" id="sub-email" placeholder="Your Email" required>
 
-      <button type="button" class="plan-btn" onclick="validateAndSubscribe('weekly')">₹15 Weekly</button>
-      <button type="button" class="plan-btn" onclick="validateAndSubscribe('monthly')">₹50 Monthly</button>
-      <button type="button" class="plan-btn" onclick="validateAndSubscribe('yearly')">₹460 Yearly</button>
-      <button type="button" class="plan-btn" onclick="validateAndSubscribe('free')">GET YOUR FREE PLAN FOR A MONTH!!!</button>
+<button type="button" class="plan-btn" data-plan="weekly">₹15 Weekly</button>
+<button type="button" class="plan-btn" data-plan="monthly">₹50 Monthly</button>
+<button type="button" class="plan-btn" data-plan="yearly">₹460 Yearly</button>
+<button type="button" class="plan-btn" data-plan="free">GET YOUR FREE PLAN FOR A MONTH!!!</button>
+
     </form>
   </div>
 </section>
@@ -339,6 +340,7 @@ footer {
 
 </body>
 </html>
+
 
 
 
